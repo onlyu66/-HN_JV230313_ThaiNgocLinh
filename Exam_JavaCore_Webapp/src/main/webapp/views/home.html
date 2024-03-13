@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h2>Student Management</h2>
+        <div>
+            <button>+ Add new student</button>
+            <form>
+                <input type="text" placeholder="Enter student's name...">
+                <button>Search</button>
+            </form>
+        </div>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Date Of Birth</th>
+                        <th>Sex</th>
+                        <th>PhoneNumber</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item : ${students}">
+                        <td scope="row" th:text="${item.student_id}"></td>
+                        <td th:text="${item.student_name}"></td>
+                        <td th:text="${item.image_url}"></td>
+                        <td th:date="${item.birthday}"></td>
+                        <td th:text="${item.sex}?'Nam':'Nữ'"></td>
+                        <td th:text="${item.phone_number}"></td>
+                        <td th:text="${item.address}"></td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
